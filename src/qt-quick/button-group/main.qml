@@ -1,0 +1,47 @@
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+
+ApplicationWindow {
+    id: root
+
+    height: 540
+    minimumHeight: 360
+    minimumWidth: 640
+    title: qsTr('Python - PySide6 - Qt')
+    visible: true
+    width: 960
+    x: 40
+    y: 50
+
+    ButtonGroup {
+        id: radioGroup
+
+    }
+
+    Column {
+        anchors.fill: parent
+        anchors.margins: 12
+        spacing: 6
+
+        Label {
+            text: qsTr('Radio:')
+        }
+
+        RadioButton {
+            ButtonGroup.group: radioGroup
+            checked: true
+            text: qsTr('A')
+        }
+
+        RadioButton {
+            ButtonGroup.group: radioGroup
+            text: qsTr('B')
+        }
+
+        RadioButton {
+            ButtonGroup.group: radioGroup
+            text: qsTr('C')
+        }
+    }
+}

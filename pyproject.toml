@@ -1,0 +1,39 @@
+[project]
+name = "python-qt"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyside6==6.8.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.4",
+    "taskipy>=1.14.1",
+]
+
+#[project.scripts]
+#spam-cli = "hello:main"
+#
+##[project.gui-scripts]
+##spam-gui = "spam:main_gui"
+
+[tool.ruff]
+line-length = 79
+extend-exclude = [".venv", "docs", "resources_rc.py"]
+
+[tool.ruff.lint]
+select = ["I", "F", "E", "W", "PL", "PT"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.taskipy.tasks]
+designer = "pyside6-designer"
+format = "ruff check . --select I --fix && ruff format ."
+format-qml = "python scripts/qml_format.py"
+lupdate = "python scripts/translations.py"
+rcc = "python scripts/compile_resources.py"
+tr = "pyside6-linguist"
